@@ -1,0 +1,49 @@
+<div class="col-12 xl:col-12">
+    <div class="col-12 md:col-12">
+        <div class="card">
+            <h5>Consulta de Clientes nuevos</h5>
+            <div class="formgroup-inline">
+                <div class="field">
+                    <label htmlFor="document" class="p-sr-only">Documento</label>
+                    <input [(ngModel)]="document1" pInputText id="document1" type="text" placeholder="Documento" />
+                </div>
+                <div class="field">
+                    <label htmlFor="firstname1" class="p-sr-only">Nombre</label>
+                    <input [(ngModel)]="firstname1" pInputText id="firstname1" type="text" placeholder="Nombre" />
+                </div>
+                <div class="field">
+                    <label htmlFor="lastname1" class="p-sr-only">Apellido</label>
+                    <input [(ngModel)]="lastname1" pInputText id="lastname1" type="text" placeholder="Apellido" />
+                </div>
+                <button type="button" pButton label="Buscar" (click)="queryClient()"></button>
+            </div>
+        </div>
+    </div>
+    <div  class="card">
+        
+        <h5>Clientes registrados</h5>
+        <p-table [value]="clients" [paginator]="true" [rows]="10" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pColumn="document">Documento </th>
+                    <th pSortableColumn="firstname">Nombre <p-sortIcon field="firstname"></p-sortIcon></th>
+                    <th pSortableColumn="lastname">Apellido <p-sortIcon field="lastname"></p-sortIcon></th>
+                    <th pColumn="email">Correo</th>
+                    <th pColumn="phone">Telefono</th>
+                    <th pColumn="address">Direccion</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-client>
+                <tr>
+                    <td style="width: 35%; min-width: 7rem;">{{client.id}}</td>
+                    <td style="width: 35%; min-width: 7rem;">{{client.firstname}}</td>
+                    <td style="width: 35%; min-width: 8rem;">{{client.lastname }}</td>
+                    <td style="width: 35%; min-width: 8rem;">{{client.email }}</td>
+                    <td style="width: 35%; min-width: 8rem;">{{client.phone }}</td>
+                    <td style="width: 35%; min-width: 8rem;">{{client.address }}</td>
+                    
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

@@ -11,14 +11,19 @@ import { EventService } from './demo/service/event.service';
 import { IconService } from './demo/service/icon.service';
 import { NodeService } from './demo/service/node.service';
 import { PhotoService } from './demo/service/photo.service';
+import { QueryclientsComponent } from './clients/queryclients/queryclients.component';
+import { UploadclientsComponent } from './clients/uploadclients/uploadclients.component';
+import { TableModule } from 'primeng/table';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
-        AppComponent, NotfoundComponent
+        AppComponent, NotfoundComponent,
     ],
     imports: [
         AppRoutingModule,
-        AppLayoutModule
+        AppLayoutModule,
+        TableModule,FormsModule,
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
